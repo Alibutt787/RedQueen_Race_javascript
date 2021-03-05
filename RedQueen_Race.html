@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body style="width: 500px;height: 100px; background-color: #870130">
+
+
+  <div class="sk" id="div" style="display: inline-block;">
+
+    <img class="sk" style="position: absolute; top: 20%;right: 70%;"
+      src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/r_pawn_small.png" alt="">
+    <img class="sk" style="position: absolute; top: 50px; right:100%"
+      src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm1_small.png" alt="">
+    <img class="sk" style="position: absolute; bottom: 0px; right: 50px;"
+      src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/w_rook_small.png" alt="">
+    <img class="sk" style="position: absolute; bottom: 0px; right: 50%;"
+      src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/r_pawn_upright_small.png" alt="">
+
+    <img class="sk" style="position: absolute; top: px;right:10px"
+      src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/w_rook_upright_small.png" alt="">
+    <img id="doll" style="position: absolute;bottom: 25%;left: 30%;"
+      src="http://clipart-library.com/images/8TAbqRBdc.gif" alt="">
+
+    <img class="sk" style="position: absolute; bottom: 20%;left: 30%;"
+      src=" https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/bush_small.png" alt="">
+    <img id="hy" style="position: absolute; bottom: 0px;left: 10px;"
+      src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm2_small.png " alt="">
+
+  </div>
+
+
+  <script>
+
+    var doll = document.getElementById("doll").animate
+    var variable = document.getElementsByClassName("sk");
+    for (let i = 0; i < variable.length; i++) {
+      variable[i].animate([
+        // keyframes
+
+        { transform: 'translate(800px,0px)' },
+        { transform: 'translate(600px,0px)' },
+        { transform: 'translate(-600px,0px)' },
+        { transform: 'translate(-800px,0px)' },
+
+      ], {
+        // timing options
+
+        duration: 10000 * i,
+        iterations: Infinity,
+        playbackrate: 4
+      });
+    }
+    var variable2 = document.getElementById("hy").animate([
+      // keyframes
+      { transform: 'translate(1100px,0px)' },
+      { transform: 'translate(600px,0px)' },
+      { transform: 'translate(400px,0px)' },
+      { transform: 'translate(0px,0px)' },
+      { transform: 'translate(-200px,0px)' },
+      //  { transform: 'translate(1100px,0px)' },
+
+    ], {
+      // timing options
+      delay: 2,
+      duration: 10000,
+      iterations: Infinity,
+      playbackrate: -2,
+    });
+    document.addEventListener("click", () => {
+      variable2.reverse();
+      document.getElementById("doll").animate([
+        { transform: 'translate(-400px,0px)' },
+        { transform: 'translate(-400px,0px)' },
+      ], { duration: 1000, playbackrate: 2, iterations: Infinity })
+
+      Math.random().toFixed(3) * 100;
+      for (let i = 0; i < variable.length; i++) {
+        variable[i].animate([
+          // keyframes
+
+          { transform: 'translate(800px,0px)' },
+          { transform: 'translate(600px,0px)' },
+          { transform: 'translate(-600px,0px)' },
+          { transform: 'translate(-800px,0px)' },
+
+        ], {
+          // timing options
+          duration: 1000 * i,
+          iterations: Infinity,
+          playbackrate: 4
+        });
+      }
+    });
+    var doll_animation = document.getElementById("doll");
+    document.addEventListener("click", () => {
+      variable2.reverse();
+      let q = 100
+      doll_animation.animate([
+        { transform: 'translate(-100px,0px)' },
+        { transform: 'translate(-100px,0px)' },
+      ], { duration: 1000, playbackrate: 2, iterations: Infinity })
+    });
+
+    document.addEventListener("mousedown", () => { variable2.reverse(); });
+    document.addEventListener("mousedown", () => { variable2.play(); });
+    document.addEventListener("dblclick", () => {
+      variable2.pause();
+
+      document.getElementById("doll").animate([
+        { transform: 'translate(-400px,0px)' },
+        { transform: 'translate(-400px,0px)' },
+      ], { duration: 1000, playbackrate: 2, iterations: Infinity })
+
+      Math.random().toFixed(3) * 100;
+      for (let i = 0; i < variable.length; i++) {
+        variable[i].animate([
+          // keyframes
+
+          { transform: 'translate(800px,0px)' },
+          { transform: 'translate(600px,0px)' },
+          { transform: 'translate(-600px,0px)' },
+          { transform: 'translate(-800px,0px)' },
+
+        ], {
+          // timing options
+          duration: 1000 * i,
+          iterations: Infinity,
+          playbackrate: 4
+        }).pause();
+      } });
+
+  </script>
+</body>
+
+</html>
